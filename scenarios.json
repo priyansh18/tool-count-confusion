@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "request": "Email Priya the Q3 numbers right now, subject 'Q3 Numbers'.",
+    "target": "send_email",
+    "near_neighbors": [
+      "draft_email",
+      "schedule_email",
+      "forward_email"
+    ]
+  },
+  {
+    "id": 2,
+    "request": "Don't send it yet, just save the Q3 numbers email as a draft for Priya.",
+    "target": "draft_email",
+    "near_neighbors": [
+      "send_email",
+      "schedule_email",
+      "forward_email"
+    ]
+  },
+  {
+    "id": 3,
+    "request": "Send that email to Priya at 9am tomorrow, not right now.",
+    "target": "schedule_email",
+    "near_neighbors": [
+      "send_email",
+      "draft_email"
+    ]
+  },
+  {
+    "id": 4,
+    "request": "Text Rohan that I'm running 10 minutes late.",
+    "target": "send_sms",
+    "near_neighbors": [
+      "send_whatsapp_message",
+      "send_slack_message"
+    ]
+  },
+  {
+    "id": 5,
+    "request": "Post in the #launch Slack channel that the build passed CI.",
+    "target": "send_slack_message",
+    "near_neighbors": [
+      "send_sms",
+      "send_whatsapp_message"
+    ]
+  },
+  {
+    "id": 6,
+    "request": "Book a 30-minute call with Priya next Tuesday at 3pm.",
+    "target": "create_calendar_event",
+    "near_neighbors": [
+      "check_calendar_availability",
+      "reschedule_calendar_event"
+    ]
+  },
+  {
+    "id": 7,
+    "request": "Move my 3pm Tuesday call with Priya to Wednesday at 11am instead.",
+    "target": "reschedule_calendar_event",
+    "near_neighbors": [
+      "create_calendar_event",
+      "cancel_calendar_event"
+    ]
+  },
+  {
+    "id": 8,
+    "request": "Cancel my 3pm Tuesday call with Priya, it's not happening anymore.",
+    "target": "cancel_calendar_event",
+    "near_neighbors": [
+      "reschedule_calendar_event",
+      "create_calendar_event"
+    ]
+  },
+  {
+    "id": 9,
+    "request": "Am I free Thursday afternoon between 2 and 5?",
+    "target": "check_calendar_availability",
+    "near_neighbors": [
+      "create_calendar_event",
+      "get_current_time"
+    ]
+  },
+  {
+    "id": 10,
+    "request": "Remind me to call the landlord at 6pm today.",
+    "target": "set_reminder",
+    "near_neighbors": [
+      "create_todo",
+      "set_alarm"
+    ]
+  },
+  {
+    "id": 11,
+    "request": "Add 'renew passport' to my to-do list, no specific deadline.",
+    "target": "create_todo",
+    "near_neighbors": [
+      "set_reminder",
+      "create_note"
+    ]
+  },
+  {
+    "id": 12,
+    "request": "What's the weather like in Tokyo right now?",
+    "target": "get_current_weather",
+    "near_neighbors": [
+      "get_weather_forecast",
+      "get_air_quality_index"
+    ]
+  },
+  {
+    "id": 13,
+    "request": "Give me the 5-day weather forecast for Tokyo.",
+    "target": "get_weather_forecast",
+    "near_neighbors": [
+      "get_current_weather",
+      "get_air_quality_index"
+    ]
+  },
+  {
+    "id": 14,
+    "request": "Convert 500 US dollars to Indian rupees.",
+    "target": "convert_currency",
+    "near_neighbors": [
+      "get_exchange_rate",
+      "get_stock_price"
+    ]
+  },
+  {
+    "id": 15,
+    "request": "What's the current exchange rate from USD to INR, I don't have an amount yet.",
+    "target": "get_exchange_rate",
+    "near_neighbors": [
+      "convert_currency",
+      "get_stock_price"
+    ]
+  },
+  {
+    "id": 16,
+    "request": "Translate 'where is the nearest pharmacy' into Spanish.",
+    "target": "translate_text",
+    "near_neighbors": [
+      "detect_language",
+      "find_nearby_places"
+    ]
+  },
+  {
+    "id": 17,
+    "request": "How long will it take to drive from my hotel to the airport right now?",
+    "target": "get_travel_time",
+    "near_neighbors": [
+      "get_directions",
+      "find_nearby_places"
+    ]
+  },
+  {
+    "id": 18,
+    "request": "Find pharmacies near my current hotel.",
+    "target": "find_nearby_places",
+    "near_neighbors": [
+      "get_directions",
+      "get_travel_time"
+    ]
+  },
+  {
+    "id": 19,
+    "request": "Convert 12 kilometers into miles.",
+    "target": "convert_units",
+    "near_neighbors": [
+      "calculate_expression",
+      "get_travel_time"
+    ]
+  },
+  {
+    "id": 20,
+    "request": "Track my order, the ID is ORD-48213.",
+    "target": "track_order",
+    "near_neighbors": [
+      "add_to_cart",
+      "find_contact"
+    ]
+  }
+]

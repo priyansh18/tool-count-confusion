@@ -1,0 +1,990 @@
+[
+  {
+    "name": "send_email",
+    "description": "Send an email immediately to one or more recipients.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "recipient email address"
+        },
+        "subject": {
+          "type": "string",
+          "description": "email subject"
+        },
+        "body": {
+          "type": "string",
+          "description": "email body"
+        }
+      },
+      "required": [
+        "to",
+        "subject",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "draft_email",
+    "description": "Save an email as a draft without sending it.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "recipient email address"
+        },
+        "subject": {
+          "type": "string",
+          "description": "email subject"
+        },
+        "body": {
+          "type": "string",
+          "description": "email body"
+        }
+      },
+      "required": [
+        "to",
+        "subject",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "schedule_email",
+    "description": "Send an email at a specific future date and time.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "recipient email address"
+        },
+        "subject": {
+          "type": "string",
+          "description": "email subject"
+        },
+        "send_at": {
+          "type": "string",
+          "description": "ISO 8601 datetime"
+        }
+      },
+      "required": [
+        "to",
+        "subject",
+        "send_at"
+      ]
+    }
+  },
+  {
+    "name": "forward_email",
+    "description": "Forward an existing email thread to a new recipient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "thread_id": {
+          "type": "string",
+          "description": "ID of the email thread to forward"
+        },
+        "to": {
+          "type": "string",
+          "description": "recipient email address"
+        }
+      },
+      "required": [
+        "thread_id",
+        "to"
+      ]
+    }
+  },
+  {
+    "name": "send_sms",
+    "description": "Send a text message to a phone number.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "phone_number": {
+          "type": "string",
+          "description": "recipient phone number"
+        },
+        "message": {
+          "type": "string",
+          "description": "message text"
+        }
+      },
+      "required": [
+        "phone_number",
+        "message"
+      ]
+    }
+  },
+  {
+    "name": "send_slack_message",
+    "description": "Post a message to a Slack channel or user.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "channel": {
+          "type": "string",
+          "description": "Slack channel or user ID"
+        },
+        "message": {
+          "type": "string",
+          "description": "message text"
+        }
+      },
+      "required": [
+        "channel",
+        "message"
+      ]
+    }
+  },
+  {
+    "name": "send_whatsapp_message",
+    "description": "Send a WhatsApp message to a contact.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "contact": {
+          "type": "string",
+          "description": "WhatsApp contact name or number"
+        },
+        "message": {
+          "type": "string",
+          "description": "message text"
+        }
+      },
+      "required": [
+        "contact",
+        "message"
+      ]
+    }
+  },
+  {
+    "name": "create_calendar_event",
+    "description": "Create a new event on the user's calendar.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "event title"
+        },
+        "start_time": {
+          "type": "string",
+          "description": "ISO 8601 start datetime"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "description": "duration in minutes"
+        }
+      },
+      "required": [
+        "title",
+        "start_time",
+        "duration_minutes"
+      ]
+    }
+  },
+  {
+    "name": "reschedule_calendar_event",
+    "description": "Move an existing calendar event to a new time.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "description": "ID of the event to move"
+        },
+        "new_start_time": {
+          "type": "string",
+          "description": "ISO 8601 new start datetime"
+        }
+      },
+      "required": [
+        "event_id",
+        "new_start_time"
+      ]
+    }
+  },
+  {
+    "name": "cancel_calendar_event",
+    "description": "Cancel and remove an existing calendar event.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "description": "ID of the event to cancel"
+        }
+      },
+      "required": [
+        "event_id"
+      ]
+    }
+  },
+  {
+    "name": "check_calendar_availability",
+    "description": "Check whether the user is free during a given time window.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "start_time": {
+          "type": "string",
+          "description": "ISO 8601 window start"
+        },
+        "end_time": {
+          "type": "string",
+          "description": "ISO 8601 window end"
+        }
+      },
+      "required": [
+        "start_time",
+        "end_time"
+      ]
+    }
+  },
+  {
+    "name": "set_reminder",
+    "description": "Set a one-time reminder for a specific time.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "reminder text"
+        },
+        "remind_at": {
+          "type": "string",
+          "description": "ISO 8601 datetime"
+        }
+      },
+      "required": [
+        "text",
+        "remind_at"
+      ]
+    }
+  },
+  {
+    "name": "create_todo",
+    "description": "Add a new item to the user's to-do list.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "to-do item text"
+        },
+        "due_date": {
+          "type": "string",
+          "description": "ISO 8601 due date, optional"
+        }
+      },
+      "required": [
+        "text",
+        "due_date"
+      ]
+    }
+  },
+  {
+    "name": "mark_todo_complete",
+    "description": "Mark an existing to-do item as done.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "todo_id": {
+          "type": "string",
+          "description": "ID of the to-do item"
+        }
+      },
+      "required": [
+        "todo_id"
+      ]
+    }
+  },
+  {
+    "name": "get_current_weather",
+    "description": "Get the current weather conditions for a city.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "city name"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  },
+  {
+    "name": "get_weather_forecast",
+    "description": "Get a multi-day weather forecast for a city.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "city name"
+        },
+        "days": {
+          "type": "integer",
+          "description": "number of days to forecast"
+        }
+      },
+      "required": [
+        "city",
+        "days"
+      ]
+    }
+  },
+  {
+    "name": "get_air_quality_index",
+    "description": "Get the current air quality index for a city.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "city name"
+        }
+      },
+      "required": [
+        "city"
+      ]
+    }
+  },
+  {
+    "name": "convert_currency",
+    "description": "Convert an amount from one currency to another using the current exchange rate.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "amount to convert"
+        },
+        "from_currency": {
+          "type": "string",
+          "description": "source currency code, e.g. USD"
+        },
+        "to_currency": {
+          "type": "string",
+          "description": "target currency code, e.g. INR"
+        }
+      },
+      "required": [
+        "amount",
+        "from_currency",
+        "to_currency"
+      ]
+    }
+  },
+  {
+    "name": "get_stock_price",
+    "description": "Get the current trading price of a stock ticker.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "description": "stock ticker symbol"
+        }
+      },
+      "required": [
+        "ticker"
+      ]
+    }
+  },
+  {
+    "name": "get_exchange_rate",
+    "description": "Get the current exchange rate between two currencies without converting an amount.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "from_currency": {
+          "type": "string",
+          "description": "source currency code"
+        },
+        "to_currency": {
+          "type": "string",
+          "description": "target currency code"
+        }
+      },
+      "required": [
+        "from_currency",
+        "to_currency"
+      ]
+    }
+  },
+  {
+    "name": "translate_text",
+    "description": "Translate a piece of text from one language to another.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "text to translate"
+        },
+        "target_language": {
+          "type": "string",
+          "description": "target language name or code"
+        }
+      },
+      "required": [
+        "text",
+        "target_language"
+      ]
+    }
+  },
+  {
+    "name": "detect_language",
+    "description": "Detect the language a piece of text is written in.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "text to analyze"
+        }
+      },
+      "required": [
+        "text"
+      ]
+    }
+  },
+  {
+    "name": "get_directions",
+    "description": "Get driving or walking directions between two locations.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "starting location"
+        },
+        "destination": {
+          "type": "string",
+          "description": "destination location"
+        }
+      },
+      "required": [
+        "origin",
+        "destination"
+      ]
+    }
+  },
+  {
+    "name": "get_travel_time",
+    "description": "Estimate travel time between two locations for a given mode of transport.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "starting location"
+        },
+        "destination": {
+          "type": "string",
+          "description": "destination location"
+        },
+        "mode": {
+          "type": "string",
+          "description": "transport mode: driving, walking, or transit"
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "mode"
+      ]
+    }
+  },
+  {
+    "name": "find_nearby_places",
+    "description": "Find places of a given category near a location.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "location to search near"
+        },
+        "category": {
+          "type": "string",
+          "description": "place category, e.g. restaurant, pharmacy"
+        }
+      },
+      "required": [
+        "location",
+        "category"
+      ]
+    }
+  },
+  {
+    "name": "convert_units",
+    "description": "Convert a quantity from one unit of measurement to another.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "numeric value"
+        },
+        "from_unit": {
+          "type": "string",
+          "description": "source unit"
+        },
+        "to_unit": {
+          "type": "string",
+          "description": "target unit"
+        }
+      },
+      "required": [
+        "value",
+        "from_unit",
+        "to_unit"
+      ]
+    }
+  },
+  {
+    "name": "calculate_expression",
+    "description": "Evaluate a numeric or mathematical expression.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "math expression to evaluate"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  },
+  {
+    "name": "web_search",
+    "description": "Search the public web for information on a query.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "search query"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "search_news",
+    "description": "Search for recent news articles on a topic.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "news topic to search for"
+        }
+      },
+      "required": [
+        "topic"
+      ]
+    }
+  },
+  {
+    "name": "upload_file",
+    "description": "Upload a local file to cloud storage.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "local path of the file to upload"
+        },
+        "destination_folder": {
+          "type": "string",
+          "description": "destination folder name"
+        }
+      },
+      "required": [
+        "file_path",
+        "destination_folder"
+      ]
+    }
+  },
+  {
+    "name": "share_file",
+    "description": "Share an existing cloud file with another user.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "ID of the file to share"
+        },
+        "recipient_email": {
+          "type": "string",
+          "description": "email of the person to share with"
+        }
+      },
+      "required": [
+        "file_id",
+        "recipient_email"
+      ]
+    }
+  },
+  {
+    "name": "delete_file",
+    "description": "Permanently delete a file from cloud storage.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "ID of the file to delete"
+        }
+      },
+      "required": [
+        "file_id"
+      ]
+    }
+  },
+  {
+    "name": "add_contact",
+    "description": "Add a new contact to the address book.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "contact name"
+        },
+        "phone_or_email": {
+          "type": "string",
+          "description": "phone number or email address"
+        }
+      },
+      "required": [
+        "name",
+        "phone_or_email"
+      ]
+    }
+  },
+  {
+    "name": "find_contact",
+    "description": "Look up an existing contact by name.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "name to search for"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "create_note",
+    "description": "Create a new text note.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "note title"
+        },
+        "content": {
+          "type": "string",
+          "description": "note content"
+        }
+      },
+      "required": [
+        "title",
+        "content"
+      ]
+    }
+  },
+  {
+    "name": "append_to_note",
+    "description": "Append text to an existing note.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "note_id": {
+          "type": "string",
+          "description": "ID of the note"
+        },
+        "text": {
+          "type": "string",
+          "description": "text to append"
+        }
+      },
+      "required": [
+        "note_id",
+        "text"
+      ]
+    }
+  },
+  {
+    "name": "play_music",
+    "description": "Play a song, artist, or playlist on the connected speaker.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "song, artist, or playlist name"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "set_volume",
+    "description": "Set the playback volume level.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "description": "volume level from 0 to 100"
+        }
+      },
+      "required": [
+        "level"
+      ]
+    }
+  },
+  {
+    "name": "set_thermostat_temperature",
+    "description": "Set the target temperature on a smart thermostat.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "number",
+          "description": "target temperature in Celsius"
+        }
+      },
+      "required": [
+        "temperature"
+      ]
+    }
+  },
+  {
+    "name": "toggle_smart_light",
+    "description": "Turn a smart light on or off.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "room": {
+          "type": "string",
+          "description": "room name"
+        },
+        "state": {
+          "type": "string",
+          "description": "on or off"
+        }
+      },
+      "required": [
+        "room",
+        "state"
+      ]
+    }
+  },
+  {
+    "name": "lock_smart_door",
+    "description": "Lock or unlock a smart door lock.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "door": {
+          "type": "string",
+          "description": "door name"
+        },
+        "state": {
+          "type": "string",
+          "description": "lock or unlock"
+        }
+      },
+      "required": [
+        "door",
+        "state"
+      ]
+    }
+  },
+  {
+    "name": "get_current_time",
+    "description": "Get the current local time in a given timezone or city.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "city or timezone name"
+        }
+      },
+      "required": [
+        "location"
+      ]
+    }
+  },
+  {
+    "name": "convert_timezone",
+    "description": "Convert a specific time from one timezone to another.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "description": "time to convert"
+        },
+        "from_timezone": {
+          "type": "string",
+          "description": "source timezone"
+        },
+        "to_timezone": {
+          "type": "string",
+          "description": "target timezone"
+        }
+      },
+      "required": [
+        "time",
+        "from_timezone",
+        "to_timezone"
+      ]
+    }
+  },
+  {
+    "name": "track_order",
+    "description": "Track the delivery status of an existing order.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "order ID to track"
+        }
+      },
+      "required": [
+        "order_id"
+      ]
+    }
+  },
+  {
+    "name": "add_to_cart",
+    "description": "Add a product to the shopping cart.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "product_name": {
+          "type": "string",
+          "description": "name of the product"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "quantity to add"
+        }
+      },
+      "required": [
+        "product_name",
+        "quantity"
+      ]
+    }
+  },
+  {
+    "name": "create_spreadsheet_row",
+    "description": "Append a new row to a spreadsheet.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "sheet_id": {
+          "type": "string",
+          "description": "spreadsheet ID"
+        },
+        "values": {
+          "type": "string",
+          "description": "comma-separated row values"
+        }
+      },
+      "required": [
+        "sheet_id",
+        "values"
+      ]
+    }
+  },
+  {
+    "name": "get_spreadsheet_cell",
+    "description": "Read the value of a specific spreadsheet cell.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "sheet_id": {
+          "type": "string",
+          "description": "spreadsheet ID"
+        },
+        "cell": {
+          "type": "string",
+          "description": "cell reference, e.g. A1"
+        }
+      },
+      "required": [
+        "sheet_id",
+        "cell"
+      ]
+    }
+  },
+  {
+    "name": "set_alarm",
+    "description": "Set an alarm for a specific time.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "description": "alarm time, e.g. 07:30"
+        }
+      },
+      "required": [
+        "time"
+      ]
+    }
+  },
+  {
+    "name": "flip_coin",
+    "description": "Flip a virtual coin and return heads or tails.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "roll_dice",
+    "description": "Roll a dice with a given number of sides.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "sides": {
+          "type": "integer",
+          "description": "number of sides on the dice"
+        }
+      },
+      "required": [
+        "sides"
+      ]
+    }
+  }
+]

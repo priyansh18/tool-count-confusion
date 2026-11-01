@@ -1,0 +1,20 @@
+{
+  "scenario_id": 4,
+  "tool_count": 5,
+  "request": "Text Rohan that I'm running 10 minutes late.",
+  "target": "send_sms",
+  "menu": [
+    "set_volume",
+    "send_whatsapp_message",
+    "send_sms",
+    "roll_dice",
+    "send_slack_message"
+  ],
+  "called_tool": "send_whatsapp_message",
+  "called_args": {
+    "contact": "Rohan",
+    "message": "I'm running 10 minutes late."
+  },
+  "correct": false,
+  "error": null
+}

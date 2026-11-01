@@ -1,0 +1,12 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "provider": "Google Generative Language API (generateContent), REST, v1beta",
+  "temperature": 0,
+  "tool_config_mode": "ANY",
+  "seed": 20261101,
+  "tool_counts_tested": [5, 10, 25, 50],
+  "scenarios": 20,
+  "total_calls": 80,
+  "date_run": "2026-11-01",
+  "notes": "Original run attempted on gemini-3.6-flash hit that model's free-tier daily cap (20 requests/day, confirmed via the API's own 429 RESOURCE_EXHAUSTED response) before completing even one full tool-count condition. Switched to gemini-3.5-flash-lite, a separate model with its own quota bucket, for the full run. This switch is a real environment constraint, documented honestly rather than silently retried on the original model."
+}

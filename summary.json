@@ -1,0 +1,30 @@
+{
+  "5": {
+    "correct": 16,
+    "total": 20,
+    "raw_accuracy": 0.8,
+    "chance_baseline": 0.2,
+    "accuracy_over_chance": 4.0
+  },
+  "10": {
+    "correct": 16,
+    "total": 20,
+    "raw_accuracy": 0.8,
+    "chance_baseline": 0.1,
+    "accuracy_over_chance": 8.0
+  },
+  "25": {
+    "correct": 15,
+    "total": 20,
+    "raw_accuracy": 0.75,
+    "chance_baseline": 0.04,
+    "accuracy_over_chance": 18.75
+  },
+  "50": {
+    "correct": 11,
+    "total": 20,
+    "raw_accuracy": 0.55,
+    "chance_baseline": 0.02,
+    "accuracy_over_chance": 27.5
+  }
+}
